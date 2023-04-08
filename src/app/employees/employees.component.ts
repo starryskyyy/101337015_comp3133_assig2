@@ -3,10 +3,9 @@ import { Employee } from '../models/employee';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { EmployeeService } from '../network/employee.service';
 
-interface UpdateEmployeeResponse {
-  updateEmployee: Employee;
-}
 
 @Component({
   selector: 'app-employees',
@@ -15,14 +14,12 @@ interface UpdateEmployeeResponse {
 })
 export class EmployeesComponent implements OnInit {
 
-
   employees!: Employee[];
   selectedEmployee!: Employee;
   showDialog = false;
-
   showUpdateDialog = false;
 
-  constructor(private apollo: Apollo, private router: Router) { }
+  constructor(private apollo: Apollo, private router: Router, private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.apollo.query({
@@ -44,41 +41,6 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
-  updateEmployee(updatedEmployee: Employee) {
-    this.apollo.mutate({
-      mutation: gql`
-        mutation updateEmployee($id: ID!, $input: UpdateEmployeeInput!) {
-          updateEmployee(id: $id, input: $input) {
-            id
-            firstname
-            lastname
-            email
-            gender
-            salary
-          }
-        }
-      `,
-      variables: {
-        id: updatedEmployee.id,
-        input: {
-          firstname: updatedEmployee.firstname,
-          lastname: updatedEmployee.lastname,
-          email: updatedEmployee.email,
-          gender: updatedEmployee.gender,
-          salary: updatedEmployee.salary,
-        },
-      },
-    }).subscribe(result => {
-      // Update the selected employee with the updated data
-      this.selectedEmployee = (result.data as UpdateEmployeeResponse).updateEmployee;
-      // Hide the update dialog
-      this.showUpdateDialog = false;
-    });
-  }
-  
-
-
-
   closeDialog() {
     this.showDialog = false;
   }
@@ -93,8 +55,16 @@ export class EmployeesComponent implements OnInit {
     this.router.navigate(['/new-employee']);
   }
 
-  goToUpdateEmployee(event: Event) {
+
+  goToUpdate(event: Event, employee: Employee) {
+    this.employeeService.setSelectedEmployee(employee);
     event.preventDefault();
     this.router.navigate(['/update-employee']);
   }
+
+
 }
+
+
+
+
