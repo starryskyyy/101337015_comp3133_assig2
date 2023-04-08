@@ -37,8 +37,15 @@ export class EmployeesComponent implements OnInit {
   }
 
   openDialog(employee: Employee) {
-    this.selectedEmployee = employee;
-    this.showDialog = true; // set the value of showDialog to true
+    this.apollo.query({
+      query: gql`
+        query getEmployeeByID("${employee.id}")
+      `,
+    }).subscribe(result => {
+      const employeeData = result.data as { getEmployeeByID: Employee };
+      this.selectedEmployee = employeeData.getEmployeeByID;
+      this.showDialog = true;
+    });
   }
 
   closeDialog() {
@@ -48,5 +55,10 @@ export class EmployeesComponent implements OnInit {
   goToLogin(event: Event) {
     event.preventDefault();
     this.router.navigate(['/']);
+  }
+
+  goToAddEmployee(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/new-employee']);
   }
 }

@@ -1,0 +1,47 @@
+<div class="w-full min-h-screen bg-gray-50 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div class="w-full sm:max-w-md p-5 mx-auto">
+        <h2 class="mb-12 text-center text-5xl font-extrabold">New Employee</h2>
+        <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+            <div class="mb-4">
+                <label class="block mb-1" for="username">First Name</label>
+                <input id="username" type="text" formControlName="firstname" name="username"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1" for="username">Last Name</label>
+                <input id="username" type="text" formControlName="lastname" name="username"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1" for="email">Email</label>
+                <input id="email" type="email" formControlName="email" name="email"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1" for="email">Gender</label>
+                <select id="gender" formControlName="gender" name="gender"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full">
+                    <option value="" disabled>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1" for="email">Salary</label>
+                <input id="email" type="email" formControlName="salary" name="email"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+                <p *ngIf="errorMessage" class="text-red-500 text-sm mt-1">{{ errorMessage }}</p>
+                <p *ngIf="successMessage" class="text-green-600 text-sm mt-1">{{ successMessage }}</p>
+            </div>
+            <div class="mt-6">
+                <button type="submit"
+                    class="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">Create
+                    Employee</button>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="#" class="underline" (click)="goToHomePage($event)">Return to Homepage</a>
+            </div>
+        </form>
+    </div>
+</div>

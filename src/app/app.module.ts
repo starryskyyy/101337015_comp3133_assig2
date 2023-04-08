@@ -11,13 +11,16 @@ import { SignupComponent } from './signup/signup.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    AddEmployeeComponent
+
   ],
   imports: [
     BrowserModule,
