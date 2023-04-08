@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { EmployeesComponent } from './employees/employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
 
@@ -15,7 +16,8 @@ import { RouterModule, Routes } from "@angular/router";
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
