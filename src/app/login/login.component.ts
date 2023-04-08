@@ -40,4 +40,9 @@ export class LoginComponent {
       }
     });
   }
+
+  goToSignUp(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/signup']);
+  }
 }

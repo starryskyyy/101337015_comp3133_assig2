@@ -7,12 +7,9 @@ import { InMemoryCache } from '@apollo/client/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
-
-const routes: Routes = [
-  
-];
 
 @NgModule({
   declarations: [
@@ -25,10 +22,8 @@ const routes: Routes = [
     ApolloModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    ReactiveFormsModule
   ],
-  exports: [RouterModule],
   providers: [
     {
         provide: APOLLO_OPTIONS,
