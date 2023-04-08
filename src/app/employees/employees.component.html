@@ -1,82 +1,138 @@
 <div class="min-h-screen flex">
     <div class="py-12 px-10 w-1/4">
-      <div class="flex items-center space-x-4 mt-6 p-2 bg-red-600 rounded-md">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
-          </svg>
+        <div class="flex items-center space-x-4 mt-6 p-2 bg-red-600 rounded-md">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-lg text-white font-semibold">Dashboard</p>
+            </div>
         </div>
-        <div>
-          <p class="text-lg text-white font-semibold">Dashboard</p>
-        </div>
-      </div>
 
-      <div class="flex mt-20 space-x-4 items-center">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-red-600 transition duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg>
+        <div class="flex mt-20 space-x-4 items-center">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-gray-400 hover:text-red-600 transition duration-200" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+            </div>
+            <a href="#" (click)="goToLogin($event)"
+                class="block font-semibold text-gray-500 hover:text-red-600 transition duration-200">Logout</a>
         </div>
-        <a href="#" class="block font-semibold text-gray-500 hover:text-red-600 transition duration-200">Logout</a>
-      </div>
     </div>
     <div class="bg-gray-100 flex-grow py-12">
         <div class="flex justify-between">
             <div class="w-full text-center">
                 <h1 class="text-4xl font-bold  mt-">Employees</h1>
-              </div>
-          </div>
-      <div>
-        <div class="flex mt-10 justify-center px-10">
-          <div class="w-full">
-            <table class="min-w-full table-auto text-xl rounded-xl overflow-hidden">
-              <thead class="justify-between ">
-                <tr class="bg-red-600">
-                  <th class="px-16 py-2">
-                    <span class="text-white">Name</span>
-                  </th>
-                  <th class="px-16 py-2">
-                    <span class="text-white">Email</span>
-                  </th>
-  
-                  <th class="px-16 py-2">
-                    <span class="text-white">Action</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-gray-200 ">
-                <tr class="bg-white border-4 border-gray-200 text-center ">
-                 
-                  <td>
-                    <span class="text-center ml-2">Dean Lynch</span>
-                  </td>
-                  <td class="px-16 py-2">samsung</td>
-                  <td class="px-16 py-2">
-                    <div class="flex item-center justify-center">
-                        <div class="w-5 mr-6 transform hover:text-red-600 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                        </div>
-                        <div class="w-5 mr-6 transform hover:text-red-600 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                            </svg>
-                        </div>
-                        <div class="w-5 mr-2 transform hover:text-red-600 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                        </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            </div>
         </div>
-      </div>
+        <div class="ml-10">
+            <button type="submit"
+                class="w-30 inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">New
+                Employee</button>
+        </div>
+        <div>
+
+            <div class="flex mt-10 justify-center px-10">
+                <div class="w-full">
+                    <table class="min-w-full table-auto text-xl rounded-xl overflow-hidden">
+                        <thead class="justify-between ">
+                            <tr class="bg-red-600">
+                                <th class="px-16 py-2">
+                                    <span class="text-white">Name</span>
+                                </th>
+                                <th class="px-16 py-2">
+                                    <span class="text-white">Email</span>
+                                </th>
+
+                                <th class="px-16 py-2">
+                                    <span class="text-white">Action</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-gray-200 ">
+                            <ng-container *ngFor="let employee of employees">
+                                <tr class="bg-white border-4 border-gray-200 text-center ">
+
+                                    <td>
+                                        <span class="text-center ml-2">{{ employee.firstname }} {{ employee.lastname
+                                            }}</span>
+                                    </td>
+                                    <td class="px-16 py-2">{{ employee.email }}</td>
+                                    <td class="px-16 py-2">
+                                        <div class="flex item-center justify-center">
+                                            <button (click)="showDialog = true; selectedEmployee = employee;"
+                                                class="w-5 mr-6  transform hover:text-red-600 hover:scale-110">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                            </button>
+                                            <div class="w-5 mr-6 transform hover:text-red-600 hover:scale-110">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                </svg>
+                                            </div>
+                                            <div class="w-5 mr-2 transform hover:text-red-600 hover:scale-110">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<div class=" mt-44 fixed inset-0 z-10 overflow-y-auto" *ngIf="showDialog">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class=" hidden inline-block align-middle h-screen"></span>&#8203;
+        <div
+            class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h2 class="text-xl leading-6 font-semibold text-gray-900 mb-4 text-center">Employee Details</h2>
+                <p class="text-lg font-medium text-gray-700 mb-2">First Name: {{ selectedEmployee?.firstname }}</p>
+                <p class="text-lg font-medium text-gray-700 mb-2">Last Name: {{ selectedEmployee?.lastname }}</p>
+                <p class="text-lg font-medium text-gray-700 mb-2">Email: {{ selectedEmployee?.email }}</p>
+                <p class="text-lg font-medium text-gray-700 mb-2">Gender: {{ selectedEmployee?.gender }}</p>
+                <p class="text-lg font-medium text-gray-700 mb-2">Salary: {{ selectedEmployee?.salary }}</p>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="button"
+                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    (click)="showDialog = false">
+                    Close
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</div>
