@@ -14,7 +14,8 @@ import { RouterModule, Routes } from "@angular/router";
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
