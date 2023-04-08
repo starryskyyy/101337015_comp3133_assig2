@@ -12,6 +12,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     LoginComponent,
     SignupComponent,
     EmployeesComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    UpdateEmployeeComponent
 
   ],
   imports: [
