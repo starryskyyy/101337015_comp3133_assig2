@@ -51,8 +51,24 @@ export class EmployeesComponent implements OnInit {
         }
       `
     }).subscribe(result => {
-      this.employees = this.employees.filter(employee => employee.id !== this.selectedEmployee.id);
-      this.showDeleteDialog = false;
+      this.apollo.query({
+        query: gql`
+          query {
+            getEmployees {
+              id
+              firstname
+              lastname
+              email
+              gender
+              salary
+            }
+          }
+        `
+      }).subscribe(result => {
+        const employeesData = result.data as { getEmployees: Employee[] };
+        this.employees = employeesData.getEmployees;
+      });
+      this.showDeleteDialog = false; 
     });
   }
 
