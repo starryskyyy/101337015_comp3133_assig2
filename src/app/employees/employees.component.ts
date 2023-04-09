@@ -17,8 +17,8 @@ export class EmployeesComponent implements OnInit {
   employees!: Employee[];
   selectedEmployee!: Employee;
   showDialog = false;
-  showUpdateDialog = false;
-
+  showDeleteDialog = false;
+  
   constructor(private apollo: Apollo, private router: Router, private employeeService: EmployeeService) { }
 
   ngOnInit() {
@@ -41,8 +41,19 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
-  closeDialog() {
-    this.showDialog = false;
+  deleteEmployee(){
+    this.apollo.mutate({
+      mutation: gql`
+        mutation {
+          deleteEmployee(id: "${this.selectedEmployee.id}") {
+            id
+          }
+        }
+      `
+    }).subscribe(result => {
+      this.employees = this.employees.filter(employee => employee.id !== this.selectedEmployee.id);
+      this.showDeleteDialog = false;
+    });
   }
 
   goToLogin(event: Event) {
