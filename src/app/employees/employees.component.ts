@@ -34,29 +34,29 @@ export class EmployeesComponent implements OnInit {
             salary
           }
         }
-      `
+      `,
+      fetchPolicy: "network-only" // <-- Add this option
     }).subscribe(result => {
       const employeesData = result.data as { getEmployees: Employee[] };
       this.employees = employeesData.getEmployees;
     });
-  }
+}
 
-  deleteEmployee(){
-    this.apollo.mutate({
-      mutation: gql`
-        mutation {
-          deleteEmployee(id: "${this.selectedEmployee.id}") {
-            id
-          }
+
+deleteEmployee(){
+  this.apollo.mutate({
+    mutation: gql`
+      mutation {
+        deleteEmployee(id: "${this.selectedEmployee.id}") {
+          id
         }
-      `
-    }).subscribe(result => {
-      this.employees = this.employees.filter(employee => employee.id !== this.selectedEmployee.id);
-      this.showDeleteDialog = false; 
-
-      const employeesData = { getEmployees: this.employees };
-      this.employees = employeesData.getEmployees;
-    });
+      }
+    `,
+    fetchPolicy: "network-only" // <-- Add this option
+  }).subscribe(result => {
+    this.employees = this.employees.filter(employee => employee.id !== this.selectedEmployee.id);
+    this.showDeleteDialog = false; 
+  });
 }
 
 
